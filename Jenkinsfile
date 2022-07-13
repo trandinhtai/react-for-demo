@@ -12,7 +12,7 @@ pipeline {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'ls -al'
           sh 'echo "Installing..."'
-          sh 'npm run build'
+          sh 'npm install'
           sh 'echo "Install dependencies successfully.'
         }
       }
