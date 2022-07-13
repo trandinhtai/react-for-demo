@@ -10,10 +10,10 @@ pipeline {
     stage ('Install dependencies') {
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
-          sh 'ls -al'
           sh 'echo "Installing..."'
           sh 'npm install'
           sh 'echo "Install dependencies successfully."'
+          sh 'ls -al'
         }
       }
     }
@@ -21,10 +21,21 @@ pipeline {
     stage ('Test') {
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
-          sh 'ls -al'
           sh 'echo "Run unit test..."'
           sh 'npm test'
           sh 'echo "Run unit test successfully."'
+          sh 'ls -al'
+        }
+      }
+    }
+
+    stage ('Build') {
+      step {
+        nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
+          sh 'echo "Build application..."'
+          sh 'npm test'
+          sh 'echo "Build application successfully."'
+          sh 'ls -al'
         }
       }
     }
