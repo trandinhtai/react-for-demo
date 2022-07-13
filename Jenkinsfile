@@ -13,7 +13,7 @@ pipeline {
           sh 'ls -al'
           sh 'echo "Installing..."'
           sh 'npm install'
-          sh 'echo "Install dependencies successfully.'
+          sh 'echo "Install dependencies successfully."'
         }
       }
     }
@@ -24,7 +24,7 @@ pipeline {
           sh 'ls -al'
           sh 'echo "Run unit test..."'
           sh 'npm test'
-          sh 'echo "Run unit test successfully.'
+          sh 'echo "Run unit test successfully."'
         }
       }
     }
