@@ -33,18 +33,18 @@ pipeline {
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'echo "Build application..."'
-          sh 'npm test'
+          sh 'npm run build'
           sh 'echo "Build application successfully."'
           sh 'ls -al'
         }
       }
     }
 
-    stage ('Result') {
+    stage ('Create docker images') {
       agent any
       steps {
          sh 'echo "Starting to build docker image"'
-         sh 'docker build -t pick-color:v1 -f docker/Dockerfile .'
+         sh 'docker build -t pick-color:v1 -f docker/Dockerfile.no_build .'
       }
     }
   }
