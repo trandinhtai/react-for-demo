@@ -37,12 +37,18 @@ pipeline {
           sh 'echo "Build application successfully."'
           sh 'ls -al'
         }
+        script {
+          stash includes 'build/', name: 'build'
+        }
       }
     }
 
     stage ('Create docker images') {
       agent any
       steps {
+        script {
+          unstash 'build'
+        }
         sh '''
           ls -al
           echo "Starting to build docker image"
