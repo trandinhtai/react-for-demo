@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  // agent {
+    // node {
+    //   label 'my-label'
+    // }
+  // }
+  stages {
+    stage ('Build & Test') {
+      steps {
+        nodejs(nodeJSInstallationName: 'Node 8.9.x', configId: '<config-file-provider-id>') {
+          sh 'echo "Build source code..."'
+          sh 'npm run build'
+          sh 'echo "Build source code successfully.'
+          sh 'echo "Run unit test..."'
+          sh 'npm test'
+          sh 'echo "Run unit test successfully.'
+        }
+      }
+    }
+  }
+}
