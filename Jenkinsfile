@@ -38,7 +38,7 @@ pipeline {
           sh 'ls -al'
         }
         script {
-          stash includes 'build/', name: 'build'
+          stash includes: 'build/', name: 'build'
         }
       }
     }
