@@ -7,13 +7,13 @@ pipeline {
   // }
   stages {
 
-    stage ('Build & Test') {
+    stage ('Install dependencies') {
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'ls -al'
-          sh 'echo "Build source code..."'
+          sh 'echo "Installing..."'
           sh 'npm run build'
-          sh 'echo "Build source code successfully.'
+          sh 'echo "Install dependencies successfully.'
         }
       }
     }
