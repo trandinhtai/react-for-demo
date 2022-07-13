@@ -6,15 +6,10 @@ pipeline {
     // }
   // }
   stages {
-    stage ('Cloning Git') {
-      steps {
-        git 'https://github.com/HoangPhu98/react-for-demo.git'
-      }
-    }
 
     stage ('Build & Test') {
       steps {
-        nodejs(nodeJSInstallationName: 'nodejs 8.9.4', configId: '<config-file-provider-id>') {
+        nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'ls -al'
           sh 'echo "Build source code..."'
           sh 'npm run build'
@@ -25,7 +20,7 @@ pipeline {
     
     stage ('Test') {
       steps {
-        nodejs(nodeJSInstallationName: 'nodejs 8.9.4', configId: '<config-file-provider-id>') {
+        nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'ls -al'
           sh 'echo "Run unit test..."'
           sh 'npm test'
