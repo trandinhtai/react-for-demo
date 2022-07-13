@@ -30,7 +30,7 @@ pipeline {
     }
 
     stage ('Build') {
-      step {
+      steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
           sh 'echo "Build application..."'
           sh 'npm test'
