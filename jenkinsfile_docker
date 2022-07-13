@@ -2,42 +2,29 @@ pipeline {
   agent none
 
   stages {
-    stage ('Cloning Git') {
+
+    stage ('Install Dependencies') {
       agent {
         docker {
           image 'node:8.9.4-alpine'
         }
       }
       steps {
-        git 'https://github.com/HoangPhu98/react-for-demo.git'
-      }
-    }
-
-    stage ('Build & Test') {
-      steps {
-        agent {
-          docker {
-            image 'node:8.9.4-alpine'
-          }
-        }
-        nodejs(nodeJSInstallationName: 'Node 8.9.x', configId: '<config-file-provider-id>') {
-          sh 'ls -al'
-          sh 'echo "Build source code..."'
-          sh 'npm run build'
-          sh 'echo "Build source code successfully.'
-        }
+        sh '''
+          echo "Installing..."
+          npm install
+          echo "All dependencies installed."
+          ls -al
+        '''
       }
     }
     
     stage ('Test') {
-      agent any
       steps {
-        nodejs(nodeJSInstallationName: 'Node 8.9.x', configId: '<config-file-provider-id>') {
           sh 'ls -al'
           sh 'echo "Run unit test..."'
           sh 'npm test'
           sh 'echo "Run unit test successfully.'
-        }
       }
     }
 

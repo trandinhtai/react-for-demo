@@ -43,8 +43,12 @@ pipeline {
     stage ('Create docker images') {
       agent any
       steps {
-         sh 'echo "Starting to build docker image"'
-         sh 'docker build -t pick-color:v1 -f docker/Dockerfile.no_build .'
+        sh '''
+          ls -al
+          echo "Starting to build docker image"
+          docker build -t pick-color:v1 -f docker/Dockerfile.no_build .
+
+        '''
       }
     }
   }
