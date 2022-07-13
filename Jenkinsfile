@@ -36,7 +36,7 @@ pipeline {
 
     stage ('Result') {
       agent any
-      stesps {
+      steps {
          sh 'echo "Starting to build docker image"'
          sh 'docker build -t pick-color:v1 -f docker/Dockerfile .'
       }
