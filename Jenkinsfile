@@ -6,6 +6,14 @@ pipeline {
     // }
   // }
   stages {
+    stage('Checkout source code') {
+      steps {
+        git branch: 'master',
+        credentialsId: 'my_cred_id',
+        url: 'https://github.com/HoangPhu98/react-for-demo.git'
+        sh "ls -la"
+      }
+    }
 
     stage ('Install dependencies') {
       steps {
