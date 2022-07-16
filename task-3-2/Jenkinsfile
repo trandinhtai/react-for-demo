@@ -18,7 +18,7 @@ pipeline {
     // checkout based on configure in current Jenkins Job Build
     // stage('Checkout current code') {
     //     steps {
-    //         checkout scm
+    //         checkout
     //     }
     // }
 
@@ -58,6 +58,5 @@ pipeline {
         sh 'ls -al'
       }
     }
-
   }
 }
