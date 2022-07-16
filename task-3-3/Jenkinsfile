@@ -10,7 +10,7 @@ pipeline {
       steps {
         git branch: 'master',
             credentialsId: 'jenkins_github_pac',
-            url: 'ssh://git@github.com:HoangPhu98/react-for-demo.git'
+            url: 'git@github.com:HoangPhu98/react-for-demo.git'
         sh "ls -la"
       }
     }
