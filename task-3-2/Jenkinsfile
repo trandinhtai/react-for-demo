@@ -1,6 +1,10 @@
 pipeline {
   agent { label 'linux-slave' }
 
+  options {
+    skipDefaultCheckout()
+  }
+
   stages {
 
     stage('Checkout source code') {
