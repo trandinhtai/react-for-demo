@@ -13,7 +13,7 @@ pipeline {
         url: 'git@github.com:HoangPhu98/react-for-demo.git'
         sh "ls -la"
       }
-    
+    }
 
     stage ('Install dependencies') {
       tools {
