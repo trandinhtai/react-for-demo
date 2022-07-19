@@ -39,6 +39,7 @@ pipeline {
         }
         script {
           stash includes: 'build/', name: 'build'
+          stash includes: 'docker/', name: 'docker_folder'
         }
       }
     }
@@ -60,6 +61,7 @@ pipeline {
       steps {
         script {
           unstash 'build'
+          unstash 'docker_folder'
         }
         sh '''
           ls -al
