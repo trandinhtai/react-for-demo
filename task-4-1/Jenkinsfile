@@ -35,7 +35,7 @@ pipeline {
 
     stage ('Build') {
       when {
-        branch 'develope'
+        branch 'develop'
       }
       steps {
         nodejs(nodeJSInstallationName: 'nodejs 8.9.4') {
@@ -53,7 +53,7 @@ pipeline {
     stage ('Create docker images') {
       agent any
       when {
-        branch 'develope'
+        branch 'develop'
       }
       steps {
         script {
