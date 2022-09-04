@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout source code') {
       steps {
         git branch: 'master',
-            credentialsId: 'jenkins_github_pac',
+            credentialsId: 'jenkins_github_pat',
             url: 'https://github.com/HoangPhu98/react-for-demo.git'
         sh "ls -la"
       }
