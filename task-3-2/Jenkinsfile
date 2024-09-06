@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'linux-slave' }
+  agent any
 
   options {
     skipDefaultCheckout()
